@@ -44,13 +44,13 @@ include("header.php");
     <h4>Fiche de synthèse : Walid Ben Bahor</h4>
     <ul>
         <li><b>Travail précis réalisé :</b></li>
-        <p>emplacement txt walid</p>
+        <p>Pour ce projet SAE23, je me suis entièrement occupé de la base de donnée ainsi que de la réalisation d'un script bash pour l'automatisation.</p>
         
         <li><b>Problèmes rencontrés :</b></li>
-        <p>emplacement txt walid</p>
+        <p>Lors de l'élaboration du script bash permettant de tout automatiser (notamment, la récupération des valeurs, le stockage et l'envoi de ces dernières dans la base de donnée), l'exportation des valeurs à poser problème de par une mauvaise syntaxe des informations stockées dans un fichier, dédié pour l'exportation vers la base de donnée.   </p>
         
         <li><b>Solutions proposées et appliquées :</b></li>
-        <p>emplacement txt walid</p>
+        <p>Pour résoudre ce problème, j'ai tester des syntaxes différentes jusqu'à que cela fonctionne.</p>
     </ul>
 </div>
 
