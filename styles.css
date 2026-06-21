@@ -153,3 +153,98 @@ footer {
     font-size: 0.9rem;
     margin-top: 40px;
 }
+
+/* --- Status messages (success / error / warning) --- */
+.message {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.message-success {
+    color: #28a745;
+}
+
+.message-error {
+    color: #dc3545;
+}
+
+.message-warning {
+    color: #e67e22;
+}
+
+/* Muted / empty-state text (e.g. "no data yet" table cells) */
+.text-muted {
+    color: #888888;
+    font-style: italic;
+}
+
+/* --- Session indicator in the header --- */
+.session-status {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* --- Highlighted action links (e.g. Administration page menu) --- */
+.action-link {
+    font-weight: bold;
+}
+
+.action-link--primary {
+    color: #0056b3;
+}
+
+.action-link--accent {
+    color: #28a745;
+}
+
+/* --- Content cards / panels (forms, confirmations, figures) --- */
+.card {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.card--centered {
+    text-align: center;
+}
+
+.card--success {
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #cccccc;
+}
+
+.figure-caption {
+    font-style: italic;
+    color: #666666;
+    margin-top: 5px;
+}
+
+/* --- Sensor statistics table (min / max / average columns) --- */
+.stat-min {
+    color: #0056b3;
+}
+
+.stat-max {
+    color: #dc3545;
+}
+
+.stat-avg {
+    font-weight: bold;
+}
+
+/* --- Spacing utilities --- */
+.section-group {
+    margin: 20px 0;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
