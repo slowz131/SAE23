@@ -52,7 +52,7 @@ include("header.php");
         <h4>Fiche de synthèse : Walid Ben Bahor</h4>
         <ul>
             <li><b>Travail précis réalisé :</b></li>
-            <p>Pour ce projet SAE23, je me suis entièrement occupé de la base de donnée ainsi que de la réalisation d'un script bash pour l'automatisation.</p>
+            <p>Pour ce projet SAE23, je me suis entièrement occupé de la base de donnée ainsi que de la réalisation d'un script bash pour l'automatisation. Toutes les contraintes ont été respectées.</p>
             
             <li><b>Problèmes rencontrés :</b></li>
             <p>Lors de l'élaboration du script bash permettant de tout automatiser (notamment, la récupération des valeurs, le stockage et l'envoi de ces dernières dans la base de donnée), l'exportation des valeurs à poser problème de par une mauvaise syntaxe des informations stockées dans un fichier, dédié pour l'exportation vers la base de donnée.   </p>
@@ -110,8 +110,16 @@ include("header.php");
     <h3>4. Conclusion et validation du cahier des charges</h3>
     <p>Bilan général concernant l'atteinte des objectifs fixés par le projet:</p>
     <section>
-        <p><b>Degré de satisfaction global :</b></p>
-        <p>emplacement txt conclusion générale sur la validation du cahier des charges, l'intégration des scripts d'administration et la restitution des mesures pour les gestionnaires.</p>
+        <p><b>Degré de satisfaction global : Pour ce projet SAE23, les objectifs fixés ont été atteints, avec une solution de visualisation de données publiées sur un bus MQTT dans une IHM (Interface Homme Machine) accessible via un navigateur web.
+</b></p>
+        <p>Voici ce que l'on a pu mettre en oeuvre :
+- Une base de donnée réalisée via phpmyadmin et respectant les contraintes conceptuelles (Chaque Bâtiment possède un identifiant unique, un nom et est géré par un gestionnaire qui dispose d’un compte (login, mot de passe). Chaque Salle possède un nom unique, un type, une capacité d’accueil et se situe dans un bâtiment. Chaque Capteur possède un nom unique, un type, une unité et est implémenté dans une salle. Chaque Mesure possède un identifiant unique, une date, un horaire, une valeur et est générée par un capteur.)
+-Un site (hébergé localement via xampp) et respectant les contraintes conceptuelles (Une page Accueil : description de l’objectif du site, affichage des bâtiments gérés, des salles équipées, mentions légales. Une page Administration : accessible uniquement par l’Administrateur du site (login mdp). Ajout/suppression de bâtiments, salles et capteurs. Une page Gestion : accessible uniquement par les Gestionnaires. Affichage des mesures des capteurs de leur bâtiment uniquement. Affichage des moyennes, min et max des salles de leur bâtiment. Une page Consultation : accessible à tous qui affiche la dernière mesure de toutes les salles. Une page Gestion de projet : GANTT final, captures d’écran outils collaboratifs utilisés, synthèse personnelle de chaque membre sur travail précis réalisé, problèmes rencontrés, solutions proposées, et une conclusion sur degré de satisfaction du cahier des charges)
+- Les utilisateurs du site (Administrateur : gestion de la BD via des formulaires. Gestionnaire : consultation des mesures via formulaires (choix du capteurs et de la plage temporelle). Affichage sur une nouvelle page. Tout le monde : affichage page Accueil, Consultation et Gestion de projet)
+Tout cela s'est réalisé à l'aide d'une machine virtuelle Lubuntu LXQt version : 0.17.0.
+De plus, nous avons utilisés les langages suivants : HTML5,CSS3,PHP,Bash.
+Nous avons globalement fait des commentaires en anglais dans nos codes.
+Le site est bien publié sur un serveur web dédié (lampp), et nous avons organisé tout notre projet SAE23 via des versions disponibles sur Github.</p>
     </section>
 </section>
 
