@@ -66,13 +66,26 @@ include("header.php");
         <h4>Fiche de synthèse : Fennot Nazavae</h4>
         <ul>
             <li><b>Travail précis réalisé :</b></li>
-            <p>emplacement txt membre 2</p>
+            <p>Dans le cadre de cette SAÉ, j'ai pris en charge la mise en place complète de la partie Docker. Mon travail a couvert les étapes suivantes :</p>
+            <p><b>Configuration du protocole MQTT :</b> J'ai configuré la connexion sous Node-RED vers le broker de l'IUT Blagnac (mqtt.iut-blagnac.fr:8883) en renseignant les identifiants requis (student).</p>
+            <p><b>Collecte de données multi-bâtiments :</b> J'ai mis en place des nœuds d'écoute (mqtt in) pour collecter de manière ciblée les flux de données de 4 capteurs répartis sur deux bâtiments distincts :<br>
+            • Bâtiment E : Capteur d'humidité de la salle E208 (sensors/AM107/by-room/E208/data) et capteur de température de la salle E106.<br>
+            • Bâtiment C : Capteur d'humidité de la salle C001 et capteur de CO2 de la salle C102.</p>
+            <p><b>Extraction des données:</b> J'ai paramétré des nœuds Change pour traiter les flux JSON reçus afin de prendre la valeur souhaitée (par exemple, la propriété humidity).</p>
+            <p><b>Développement de la supervision temps réel (Node-RED Dashboard) :</b> J'ai conçu des interfaces visuelles de type "Jauge" (Gauge) organisées par onglets ("Bâtiment E" et "Bâtiment C") permettant de suivre instantanément l'état de l'air (humidité en %, température en °C, CO2 en ppm).</p>
+            <p><b>Déploiement de la base de données InfluxDB :</b> J'ai créé en ligne de commande deux bases de données: Capteurs_E et Capteurs_C. J'y ai modélisé les tables de mesures (measurements) (Humidite, Temperature, Luminosite, Co2) configurées avec des tags précis (Bâtiment, Salle) et une précision temporelle au format rfc3339.</p>
+            <p><b>Gestion des privilèges des profils (InfluxDB) :</b>J'ai créé des utilisateurs dédiés pour la gestion des bâtiments (Gestion_E et Gestion_C avec le mot de passe 'rt') et je leur ai attribué des droits de lecture sur leurs bases respectives. J'ai ensuite relié mes flux Node-RED à InfluxDB à l'aide du compte administrateur.</p>
+            <p><b>Grafana :</b> J'ai connecté InfluxDB à Grafana en configurant les sources de données sur les bases de données créées : Capteurs Batiment RT  et Capteurs Batiment Recherche )et j'ai écrit des requêtes en langage InfluxQL dans l'interface Grafana pour afficher l'évolution temporelle des mesures ainsi que des indicateurs statistiques (minimum, maximum, moyenne). J'ai ensuite créé différents comptes gestionnaires : celui du batiment R&T et celui du batiment Recherche.
+			Les gestionnaires ont accès aux mesures des capteurs de leur batiment respéctif et les utiliateurs qui ne se sont pas authentifié ont accès aux dernières valeurs des capteurs des batiments R&T et Recherche. </p>
             
             <li><b>Problèmes rencontrés :</b></li>
-            <p>emplacement txt membre 2</p>
+            <p><b>Erreur d'expression JSON dans le noeud change (Node-Red) :</b> Ma première tentative d'extraction de la valeur numérique à l'aide de la fonction $number(payload) a échoué. Le débuggeur affichait une erreur critique : "Invalid JSONata expression: Argument 1 of function 'number' does not match function signature", car la structure du payload n'était pas lue correctement.</p>
+            <p><b>Désalignement des colonnes dans InfluxDB :</b> Lors de mes tests d'insertion manuels initiaux, j'ai injecté des valeurs en figeant le nom des variables (ex: Luminosite=0). Cela a corrompu la structure de la table lors de la réception des flux automatiques de Node-RED, créant des colonnes doublons (ex: une colonne Taux_Humidite vide à côté de la colonne value contenant la vraie mesure), ce qui empêchait l'affichage correct des données.</p>
             
             <li><b>Solutions proposées et appliquées :</b></li>
-            <p>emplacement txt membre 2</p>
+            
+            <p><b>Correction du chemin d'accès JSON :</b> J'ai modifié la règle du nœud Change pour cibler directement le premier index du tableau reçu à l'aide de la syntaxe msg.payload[0].humidity sans passer par la fonction $number, ce qui a immédiatement résolu le problème de typage.</p>
+            <p><b>Nettoyage et correction des requêtes InfluxDB :</b> J'ai enlevé les tables erronées à l'aide de la commande DROP MEASUREMENT. J'ai réajusté mes commandes d'insertion en supprimant les variables fixes afin de laisser Node-RED mettre automatiquement le champ value, assurant ainsi un alignement des données historisées.</p>
         </ul>
     </section>
 
