@@ -13,7 +13,9 @@ include("header.php");
     <h3>1. Planification temporelle (Diagramme de GANTT)</h3>
     <p>Voici le planning de développement et d'intégration final réalisé pour notre projet :</p>
     <figure class="card card--centered">
-        <img src="images/gantt.png" alt="Diagramme de GANTT Final">
+        <img src="./images/Gantt_1.png" alt="Diagramme de GANTT Final">
+        <img src="./images/Gantt_2.png" alt="Diagramme de GANTT Final">
+        <img src="./images/Gantt_3.png" alt="Diagramme de GANTT Final">
         <figcaption class="figure-caption">Figure 1 : Diagramme de GANTT du projet finalisé</figcaption>
     </figure>
 </section>
@@ -27,13 +29,14 @@ include("header.php");
     <section class="section-group">
         <h4>Suivi des versions et code source (Git / GitHub)</h4>
         <figure class="card card--centered">
-            <img src="images/screenshot_git.png" alt="Capture d'écran GitHub">
+            <img src="./images/github.jpg" alt="Capture d'écran GitHub">
             <figcaption class="figure-caption">Figure 2 : Capture d'écran du dépôt Git de l'équipe</figcaption>
         </figure>
 
         <h4>Communication et partage de documents</h4>
         <figure class="card card--centered">
-            <img src="images/screenshot_outils.png" alt="Capture d'écran outils collaboratifs">
+            <img src="./images/drive_vm.png" alt="Capture d'écran outils collaboratifs">
+            <img src="./images/conv_insta.png" alt="Capture d'écran outils collaboratifs">
             <figcaption class="figure-caption">Figure 3 : Environnement d'échange d'équipe</figcaption>
         </figure>
     </section>
@@ -98,6 +101,18 @@ include("header.php");
         <p>emplacement txt conclusion générale sur la validation du cahier des charges, l'intégration des scripts d'administration et la restitution des mesures pour les gestionnaires.</p>
     </section>
 </section>
+
+<aside  id="validation">
+	<hr>
+	<p><em><strong> Validation de la page HTML5 - CSS3 </strong></em></p>
+	<a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fbenbahor.atwebpages.com%2FSAE23%2Fprojet.php" target="_blank">
+		<img class= "image-responsive" src="./images/html5-validator-badge-blue.png" alt="HTML5 Valide !" />
+	</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://jigsaw.w3.org/css-validator/validator?uri=http://benbahor.atwebpages.com/SAE23/CSS/styles.css" target="_blank">
+		<img class= "image-responsive" src="./images/vcss-blue.png" alt="CSS Valide !" />
+	</a>
+</aside>
 
 <?php
 // Close the database link

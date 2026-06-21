@@ -248,3 +248,13 @@ footer {
 .mt-20 {
     margin-top: 20px;
 }
+
+/* --- aside ajustement of the validator's images --- */
+aside#validation img
+{
+	boder: 0;
+	margin: 0px 20px;
+	margin-bottom: 20px;
+	width: 88px;
+	heigt: 31px;
+}

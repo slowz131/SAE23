@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 19 Juin 2026 à 23:33
+-- Généré le :  Dim 21 Juin 2026 à 16:50
 -- Version du serveur :  5.6.20
 -- Version de PHP :  5.5.15
 
@@ -31,7 +31,7 @@ USE `sae23`;
 DROP TABLE IF EXISTS `Administration`;
 CREATE TABLE IF NOT EXISTS `Administration` (
   `LOGIN_ADMIN` varchar(25) NOT NULL,
-  `Mdp_admin` varchar(25) NOT NULL
+  `Mdp_admin` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `Administration` (
 --
 
 INSERT INTO `Administration` (`LOGIN_ADMIN`, `Mdp_admin`) VALUES
-('admin_sae23', 'je_suis_admin_sae23');
+('admin_sae23', '05e1ef6f1a492c8d605b87596f7c6c27');
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `Batiment` (
   `ID_BAT` varchar(1) NOT NULL,
   `Nom_bat` varchar(25) DEFAULT NULL,
   `Login` varchar(25) DEFAULT NULL,
-  `Mdp` varchar(25) DEFAULT NULL
+  `Mdp` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `Batiment` (
 --
 
 INSERT INTO `Batiment` (`ID_BAT`, `Nom_bat`, `Login`, `Mdp`) VALUES
-('B', 'GIM/INFO', 'gestionnaire_batB', 'jesuisgestionnaire_batB'),
-('E', 'RT/CS', 'gestionnaire_batE', 'jesuisgestionnaire_batE');
+('B', 'GIM/INFO', 'gestionnaire_batB', '8c2c68e921cfe644a6ea0ff6f82e7fd4'),
+('E', 'RT/CS', 'gestionnaire_batE', '31d4107a4e0f63ff5f90891f6ea1c08c');
 
 -- --------------------------------------------------------
 
@@ -82,11 +82,14 @@ CREATE TABLE IF NOT EXISTS `Capteur` (
 --
 
 INSERT INTO `Capteur` (`NOM_CAPTEUR`, `Type`, `Unite`, `NOM_SALLE`) VALUES
-('AM107-16', 'Humidity', 'test', 'B109'),
+('AM107-16', 'Humidity', '%HR', 'B109'),
 ('AM107-3', 'Temperature', '°C', 'B111'),
+('AM107-30', 'Pressure', 'Pa', 'E007'),
 ('AM107-32', 'Temperature', '°C', 'E102'),
+('AM107-37', 'Illumination', 'lx', 'E100'),
 ('AM107-38', 'CO2', 'PPM', 'E208'),
-('AM107-5', 'CO2', 'PPM', 'B202');
+('AM107-5', 'CO2', 'PPM', 'B202'),
+('AM107-6', 'Tvoc', 'ppb', 'B203');
 
 -- --------------------------------------------------------
 
@@ -101,18 +104,37 @@ CREATE TABLE IF NOT EXISTS `Mesure` (
   `Horaire` time NOT NULL,
   `Valeur` float(6,1) NOT NULL,
   `NOM_CAPTEUR` varchar(10) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=204 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=341 ;
 
 --
 -- Contenu de la table `Mesure`
 --
 
 INSERT INTO `Mesure` (`ID_MESURE`, `Date`, `Horaire`, `Valeur`, `NOM_CAPTEUR`) VALUES
-(199, '2026-06-19', '23:30:02', 29.8, 'AM107-3'),
-(200, '2026-06-19', '23:30:02', 403.0, 'AM107-38'),
-(201, '2026-06-19', '23:30:02', 28.9, 'AM107-32'),
-(202, '2026-06-19', '23:30:02', 435.0, 'AM107-5'),
-(203, '2026-06-19', '23:30:02', 46.5, 'AM107-16');
+(317, '2026-06-21', '16:30:02', 46.5, 'AM107-16'),
+(318, '2026-06-21', '16:30:02', 996.7, 'AM107-30'),
+(319, '2026-06-21', '16:30:02', 30.9, 'AM107-3'),
+(320, '2026-06-21', '16:30:02', 137.0, 'AM107-6'),
+(321, '2026-06-21', '16:30:02', 413.0, 'AM107-5'),
+(322, '2026-06-21', '16:30:02', 395.0, 'AM107-38'),
+(323, '2026-06-21', '16:30:02', 100.0, 'AM107-37'),
+(324, '2026-06-21', '16:30:02', 32.1, 'AM107-32'),
+(325, '2026-06-21', '16:40:02', 137.0, 'AM107-6'),
+(326, '2026-06-21', '16:40:02', 996.7, 'AM107-30'),
+(327, '2026-06-21', '16:40:02', 31.0, 'AM107-3'),
+(328, '2026-06-21', '16:40:02', 415.0, 'AM107-5'),
+(329, '2026-06-21', '16:40:02', 111.0, 'AM107-37'),
+(330, '2026-06-21', '16:40:02', 32.3, 'AM107-32'),
+(331, '2026-06-21', '16:40:02', 398.0, 'AM107-38'),
+(332, '2026-06-21', '16:40:02', 46.5, 'AM107-16'),
+(333, '2026-06-21', '16:50:02', 32.5, 'AM107-32'),
+(334, '2026-06-21', '16:50:02', 46.5, 'AM107-16'),
+(335, '2026-06-21', '16:50:02', 122.0, 'AM107-37'),
+(336, '2026-06-21', '16:50:02', 398.0, 'AM107-38'),
+(337, '2026-06-21', '16:50:02', 411.0, 'AM107-5'),
+(338, '2026-06-21', '16:50:02', 137.0, 'AM107-6'),
+(339, '2026-06-21', '16:50:02', 31.1, 'AM107-3'),
+(340, '2026-06-21', '16:50:02', 996.7, 'AM107-30');
 
 -- --------------------------------------------------------
 
@@ -136,6 +158,9 @@ INSERT INTO `Salle` (`NOM_SALLE`, `Type`, `Capacite`, `ID_BAT`) VALUES
 ('B109', 'TP', 24, 'B'),
 ('B111', 'TP', 17, 'B'),
 ('B202', 'TP', 17, 'B'),
+('B203', 'TP', 22, 'B'),
+('E007', 'TD', 24, 'E'),
+('E100', 'TP', 20, 'E'),
 ('E102', 'TP', 17, 'E'),
 ('E208', 'TP', 17, 'E');
 
@@ -181,7 +206,7 @@ ALTER TABLE `Salle`
 -- AUTO_INCREMENT pour la table `Mesure`
 --
 ALTER TABLE `Mesure`
-MODIFY `ID_MESURE` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=204;
+MODIFY `ID_MESURE` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=341;
 --
 -- Contraintes pour les tables exportées
 --

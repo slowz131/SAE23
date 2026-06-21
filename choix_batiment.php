@@ -47,6 +47,18 @@ include("header.php");
     <input type="submit" value="Suivant : Configurer la salle">
 </form>
 
+<aside  id="validation">
+	<hr>
+	<p><em><strong> Validation de la page HTML5 - CSS3 </strong></em></p>
+	<a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fbenbahor.atwebpages.com%2FSAE23%2Fchoix_batiment.php" target="_blank">
+		<img class= "image-responsive" src="./images/html5-validator-badge-blue.png" alt="HTML5 Valide !" />
+	</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://jigsaw.w3.org/css-validator/validator?uri=http://benbahor.atwebpages.com/SAE23/CSS/styles.css" target="_blank">
+		<img class= "image-responsive" src="./images/vcss-blue.png" alt="CSS Valide !" />
+	</a>
+</aside>
+
 <?php
 mysqli_close($conn);
 include("footer.php");

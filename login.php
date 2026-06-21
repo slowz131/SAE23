@@ -70,7 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php if ($error_msg != "") { ?>
     <p class="message message-error"><?php echo $error_msg; ?></p>
-<?php } ?>
+<?php } 
+?>
 
 <form action="login.php" method="POST">
     <label for="username">Identifiant :</label><br>
@@ -81,6 +82,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <input type="submit" value="Se connecter">
 </form>
+
+<aside  id="validation">
+	<hr>
+	<p><em><strong> Validation de la page HTML5 - CSS3 </strong></em></p>
+	<a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fbenbahor.atwebpages.com%2FSAE23%2Flogin.php" target="_blank">
+		<img class= "image-responsive" src="./images/html5-validator-badge-blue.png" alt="HTML5 Valide !" />
+	</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://jigsaw.w3.org/css-validator/validator?uri=http://benbahor.atwebpages.com/SAE23/CSS/styles.css" target="_blank">
+		<img class= "image-responsive" src="./images/vcss-blue.png" alt="CSS Valide !" />
+	</a>
+</aside>
 
 <?php
 // Close MySQL link and call the footer layout
