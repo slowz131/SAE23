@@ -13,40 +13,39 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 include("header.php");
 ?>
 
-<link rel="stylesheet" href="styles.css">
 <h2>Gestion des Capteurs - Ajouter un nouveau capteur</h2>
 
-<div style="background-color: #ffffff; padding: 20px; border: 1px solid #dddddd; border-radius: 4px; margin-bottom: 20px;">
+<section class="card">
     <h3>Formulaire de saisie :</h3>
     <form action="nouveau_capteur.php" method="POST">
         <p>
             <label for="nom_capteur"><b>Nom du capteur :</b></label><br>
-            <input type="text" id="nom_capteur" name="NOM_CAPTEUR" placeholder="Ex: AM107-1" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            <input type="text" id="nom_capteur" name="NOM_CAPTEUR" placeholder="Ex: AM107-1" required>
         </p>
         
         <p>
             <label for="type_mesure"><b>Type de mesure :</b></label><br>
-            <input type="text" id="type_mesure" name="TYPE_MESURE" placeholder="Ex: CO2, Temperature, Humidite" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            <input type="text" id="type_mesure" name="TYPE_MESURE" placeholder="Ex: CO2, Temperature, Humidite" required>
         </p>
 
         <p>
             <label for="unite"><b>Unité de mesure :</b></label><br>
-            <input type="text" id="unite" name="UNITE" placeholder="Ex: PPM, °C, %" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            <input type="text" id="unite" name="UNITE" placeholder="Ex: PPM, °C, %" required>
         </p>
         
         <p>
             <label for="nom_salle"><b>Nom de la salle rattachée :</b></label><br>
-            <input type="text" id="nom_salle" name="NOM_SALLE" placeholder="Ex: B202" required style="width: 100%; padding: 8px; margin-top: 5px;">
+            <input type="text" id="nom_salle" name="NOM_SALLE" placeholder="Ex: B202" required>
         </p>
         
         <p>
-            <input type="submit" value="Enregistrer le capteur" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">
+            <input type="submit" value="Enregistrer le capteur">
         </p>
     </form>
-</div>
+</section>
 
 <?php
-// TRAITEMENT DU FORMULAIRE (Dès que le bouton est cliqué)
+// FORM PROCESSING (runs once the submit button has been clicked)
 if (isset($_POST['NOM_CAPTEUR'], $_POST['TYPE_MESURE'], $_POST['UNITE'], $_POST['NOM_SALLE'])) {
 
     // Extracting data from POST
@@ -55,19 +54,19 @@ if (isset($_POST['NOM_CAPTEUR'], $_POST['TYPE_MESURE'], $_POST['UNITE'], $_POST[
     $unite       = $_POST['UNITE']; 
     $nom_salle   = $_POST['NOM_SALLE'];   
 
-    // SQL Insert statement (Inclusion de 'Type' et 'Unite' selon ton cours)
+    // SQL Insert statement (includes the 'Type' and 'Unite' fields as covered in your course)
     $query = "INSERT INTO Capteur (NOM_CAPTEUR, Type, Unite, NOM_SALLE) 
               VALUES ('$nom_capteur', '$type_mesure', '$unite', '$nom_salle')";
 
     // Execute insertion
-    $result = mysqli_query($conn, $query) or die("<p style='color: red; font-weight: bold;'>Error executing query: " . mysqli_error($conn) . "</p>");
+    $result = mysqli_query($conn, $query) or die("<p class='message message-error'>Error executing query: " . mysqli_error($conn) . "</p>");
 
-    // Affichage du bloc de confirmation
+    // Display the confirmation block
     ?>
     <hr>
-    <p style="color: green; font-weight: bold;">Le nouveau capteur a été ajouté avec succès !</p>
+    <p class="message message-success">Le nouveau capteur a été ajouté avec succès !</p>
 
-    <div style="background-color: #e8f5e9; padding: 15px; border: 1px solid #c8e6c9; border-radius: 4px;">
+    <section class="card card--success">
         <h3>Détails du capteur enregistré :</h3>
         <ul>
             <li><b>Nom du capteur :</b> <?php echo htmlspecialchars($nom_capteur); ?></li>
@@ -75,14 +74,14 @@ if (isset($_POST['NOM_CAPTEUR'], $_POST['TYPE_MESURE'], $_POST['UNITE'], $_POST[
             <li><b>Unité :</b> <?php echo htmlspecialchars($unite); ?></li>
             <li><b>Assigné à la salle :</b> <?php echo htmlspecialchars($nom_salle); ?></li>
         </ul>
-    </div>
+    </section>
     <?php
 
     mysqli_close($conn);
 }
 ?>
 
-<p style="margin-top: 20px;"><a href="administration.php">Retour à l'espace Administration</a></p>
+<p class="mt-20"><a href="administration.php">Retour à l'espace Administration</a></p>
 
 <?php
 include("footer.php");

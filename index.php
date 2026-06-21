@@ -3,7 +3,6 @@
 include("connect.php");
 include("header.php");
 ?>
-<link rel="stylesheet" href="styles.css">
 <h2>Accueil - Supervision des infrastructures</h2>
 <p>
     Bienvenue sur l'interface de supervision de l'IUT de Blagnac. Ce site permet de suivre en temps réel 
@@ -27,8 +26,8 @@ $result = mysqli_query($conn, $query);
 
 // Check if there are any results in the table
 if (mysqli_num_rows($result) > 0) {
-    echo "<table border='1' cellpadding='8' style='border-collapse: collapse; width: 100%; text-align: left;'>";
-    echo "<tr style='background-color: #f2f2f2;'>";
+    echo "<table>";
+    echo "<tr>";
     echo "<th>ID Bâtiment</th>";
     echo "<th>Nom du Bâtiment</th>";
     echo "<th>Nom de la Salle</th>";
@@ -48,13 +47,13 @@ if (mysqli_num_rows($result) > 0) {
             echo "<td>" . ($row['Type']) . "</td>";
             echo "<td>" . ($row['Capacite']) . " places</td>";
         } else {
-            echo "<td colspan='3' style='color: gray; font-style: italic;'>Aucune salle enregistrée pour ce bâtiment</td>";
+            echo "<td colspan='3' class='text-muted'>Aucune salle enregistrée pour ce bâtiment</td>";
         }
         echo "</tr>";
     }
     echo "</table>";
 } else {
-    echo "<p style='color: red;'>Aucun bâtiment ni aucune salle n'ont été trouvés dans la base de données.</p>";
+    echo "<p class='message message-error'>Aucun bâtiment ni aucune salle n'ont été trouvés dans la base de données.</p>";
 }
 
 // Close MySQL connection for this script

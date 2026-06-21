@@ -11,7 +11,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 include("header.php");
 ?>
-<link rel="stylesheet" href="styles.css">
 <h2>Ajouter une Salle - Étape 1 : Choisir le Bâtiment</h2>
 
 <form action="nouvelle_salle.php" method="POST">
@@ -40,7 +39,7 @@ include("header.php");
                 echo '</p>';
             }
         } else {
-            echo "<p style='color: red;'>Aucun bâtiment trouvé. Créez d'abord un bâtiment.</p>";
+            echo "<p class='message message-error'>Aucun bâtiment trouvé. Créez d'abord un bâtiment.</p>";
         }
         ?>
     </fieldset>

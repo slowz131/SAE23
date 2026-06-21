@@ -11,17 +11,16 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 include("header.php");
 ?>
-<link rel="stylesheet" href="styles.css">
 <h2>Espace Administration</h2>
 <p>Bienvenue, administrateur. Utilisez les outils ci-dessous pour gérer les infrastructures :</p>
 
 <ul>
     <li>
-        <a href="choix_batiment.php" style="font-weight: bold; color: #0056b3;">Ajouter une nouvelle salle dans un bâtiment</a>
+        <a href="choix_batiment.php" class="action-link action-link--primary">Ajouter une nouvelle salle dans un bâtiment</a>
     </li>
     <br>
     <li>
-        <a href="choix_salle.php" style="font-weight: bold; color: green;"> Ajouter un nouveau capteur dans une salle</a>
+        <a href="choix_salle.php" class="action-link action-link--accent"> Ajouter un nouveau capteur dans une salle</a>
     </li>
 </ul>
 

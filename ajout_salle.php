@@ -26,11 +26,10 @@ $result = mysqli_query($conn, $query) or die("Error executing query: " . mysqli_
 
 mysqli_close($conn);
 ?>
-<link rel="stylesheet" href="styles.css">
 <h2>Confirmation d'ajout de salle</h2>
-<p style="color: green; font-weight: bold;">La nouvelle salle a été ajoutée avec succès !</p>
+<p class="message message-success">La nouvelle salle a été ajoutée avec succès !</p>
 
-<div style="background-color: #ffffff; padding: 15px; border: 1px solid #dddddd; border-radius: 4px;">
+<section class="card">
     <h3>Détails de la salle enregistrée :</h3>
     <ul>
         <li><b>Nom de la salle :</b> <?php echo htmlspecialchars($nom_salle); ?></li>
@@ -38,7 +37,7 @@ mysqli_close($conn);
         <li><b>Capacité :</b> <?php echo ($capacite); ?> places</li>
         <li><b>Rattachée au Bâtiment ID :</b> <?php echo ($id_bat); ?></li>
     </ul>
-</div>
+</section>
 
 <p><a href="administration.php"> Retour à l'espace Administration</a></p>
 

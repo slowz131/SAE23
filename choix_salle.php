@@ -41,7 +41,7 @@ include("header.php");
                 echo '</p>';
             }
         } else {
-            echo "<p style='color: red;'>Aucune salle disponible. Créez d'abord une salle.</p>";
+            echo "<p class='message message-error'>Aucune salle disponible. Créez d'abord une salle.</p>";
         }
         ?>
     </fieldset>

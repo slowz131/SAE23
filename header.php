@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <title>WELO - System Supervision</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <?php 
         // Display logout link and username only if someone is logged in
         if (isset($_SESSION['role'])) {
-            echo ' | <span style="color: green;"> Connecter à : ' . ($_SESSION['login']) . '</span> | ';
+            echo ' | <span class="session-status"> Connecter à : ' . ($_SESSION['login']) . '</span> | ';
             echo '<a href="logout.php">Déconnexion</a>';
         }
         ?>

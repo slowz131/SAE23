@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <p>Veuillez vous connecter pour accéder aux outils de gestion ou d'administration.</p>
 
 <?php if ($error_msg != "") { ?>
-    <p style="color: red; font-weight: bold;"><?php echo $error_msg; ?></p>
+    <p class="message message-error"><?php echo $error_msg; ?></p>
 <?php } ?>
 
 <form action="login.php" method="POST">

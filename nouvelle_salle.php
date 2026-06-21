@@ -14,7 +14,6 @@ $selected_bat = $_POST['id_bat'];
 
 include("header.php");
 ?>
-<link rel="stylesheet" href="styles.css">
 <h2>Ajouter une Salle - Étape 2 : Informations de la Salle</h2>
 
 <form action="ajout_salle.php" method="POST">
